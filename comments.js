@@ -10,11 +10,13 @@ import socketIo from 'socket.io';
 const io = socketIo(server);
 // create body parser
 import { json } from 'body-parser';
+import mongoose from 'mongoose'; // Import mongoose package
+
 app.use(json());
-// create mongoose
-import { Schema as _Schema } from 'mongoose';
+
 // create mongoose schema
-const Schema = _Schema;
+const Schema = mongoose.Schema; // Use mongoose.Schema instead of _Schema
 const commentSchema = new Schema({
     // code for commentSchema goes here
 });
+const Comment = mongoose.model('Comment', commentSchema);
